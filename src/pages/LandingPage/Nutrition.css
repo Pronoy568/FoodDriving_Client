@@ -1,0 +1,7 @@
+.Training-item {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(https://i.ibb.co/RzCPSsn/image3.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 570px;
+}
