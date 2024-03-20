@@ -26,7 +26,7 @@ const Supplies = () => {
   const handleDelete = (id: any) => {
     Swal.fire({
       title: "Delete",
-      text: "Are you sure you want to delete the toy ?",
+      text: "Are you sure you want to delete the Supply ?",
       icon: "question",
       showCancelButton: true,
       confirmButtonText: "YES",

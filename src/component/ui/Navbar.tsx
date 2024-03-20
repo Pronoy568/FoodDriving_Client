@@ -2,18 +2,27 @@ import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo/logo.jpg";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logout, selectCurrentUser } from "../../redux/features/auth/authSlice";
+import { toggleTheme } from "../../redux/features/theme/themeSlice";
 
 const Navbar = () => {
   const user = useAppSelector(selectCurrentUser);
   const dispatch = useAppDispatch();
-
+  const { isDark } = useAppSelector((state) => state.theme);
   const handleLogOut = () => {
     dispatch(logout());
   };
 
+  const handleChangeTheme = () => {
+    dispatch(toggleTheme());
+  };
+
   return (
     <>
-      <div className="navbar bg-base-100 lg:flex lg:justify-center lg:items-center">
+      <div
+        className={`${
+          isDark ? "bg-slate-900 text-white" : "bg-base-100"
+        } navbar lg:flex lg:justify-center lg:items-center`}
+      >
         {/* Mobile */}
         <div className="navbar-start">
           <div className="dropdown">
@@ -67,6 +76,51 @@ const Navbar = () => {
                   </li>
                 </>
               )}
+              <button onClick={handleChangeTheme}>
+                {isDark ? (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-sun-moon text-white"
+                    >
+                      <path d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.9 4.9 1.4 1.4" />
+                      <path d="m17.7 17.7 1.4 1.4" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.3 17.7-1.4 1.4" />
+                      <path d="m19.1 4.9-1.4 1.4" />
+                    </svg>
+                  </>
+                ) : (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-moon"
+                    >
+                      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                    </svg>
+                  </>
+                )}
+              </button>
             </ul>
           </div>
           <img src={logo} alt="logo" />
@@ -79,6 +133,9 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink to="/supplies">All Supplies</NavLink>
+            </li>
+            <li>
+              <NavLink to="/community">Gratitude</NavLink>
             </li>
             {user ? (
               <>
@@ -100,6 +157,53 @@ const Navbar = () => {
                 </li>
               </>
             )}
+            <li>
+              <button onClick={handleChangeTheme}>
+                {isDark ? (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-sun-moon text-white"
+                    >
+                      <path d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.9 4.9 1.4 1.4" />
+                      <path d="m17.7 17.7 1.4 1.4" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.3 17.7-1.4 1.4" />
+                      <path d="m19.1 4.9-1.4 1.4" />
+                    </svg>
+                  </>
+                ) : (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-moon "
+                    >
+                      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                    </svg>
+                  </>
+                )}
+              </button>
+            </li>
           </ul>
         </div>
       </div>

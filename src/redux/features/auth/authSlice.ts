@@ -40,3 +40,4 @@ export const { setUser, logout, setRegister } = authSlice.actions;
 export default authSlice.reducer;
 
 export const selectCurrentUser = (state: RootState) => state.auth.email;
+export const selectCurrentUserName = (state: RootState) => state.auth.name;

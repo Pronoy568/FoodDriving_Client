@@ -10,6 +10,8 @@ import Supplies from "../pages/Dashboard/Supplies";
 import CreateSupply from "../pages/Dashboard/CreateSupply";
 import SingleSupply from "../pages/AllSupplies/SingleSupply";
 import UpdateSupply from "../pages/Dashboard/UpdateSupply";
+import Gratitude from "../pages/Gratitude/Gratitude";
+import CreateTestimonial from "../pages/Dashboard/CreateTestimonial";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/supplies/:id",
         element: <SingleSupply />,
+      },
+      {
+        path: "/community",
+        element: <Gratitude />,
       },
       {
         path: "/login",
@@ -53,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/create-supply",
         element: <CreateSupply />,
+      },
+      {
+        path: "/dashboard/create-testimonial",
+        element: <CreateTestimonial />,
       },
       {
         path: "/dashboard/updateSupplies/:id",

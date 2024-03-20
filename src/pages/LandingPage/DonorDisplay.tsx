@@ -1,40 +1,30 @@
 const DonorDisplay = (props: {
   chef: {
-    chefName: string;
-    chefImage: string;
-    experience: string;
-    recipeNumber: string;
-    likeNumber: string;
-    bio: string;
+    name: string;
+    email: string;
+    category: string;
+    quantity: string;
+    photo: string;
   };
 }) => {
-  const { chefName, chefImage, experience, recipeNumber, likeNumber, bio } =
-    props.chef;
+  const { name, email, category, quantity, photo } = props.chef;
 
   return (
-    <div>
-      <div className="card w-96 bg-base-100 hover:bg-slate-200 shadow-xl pt-3">
-        <div className="flex items-center justify-center">
-          <figure>
-            <img className="rounded-lg" src={chefImage} alt={chefName} />
-          </figure>
-          <div className="px-4 text-justify">
-            <h1 className="card-title text-xl font-bold">{chefName}</h1>
-            <h1>
-              <span className="font-semibold">Experience: </span>
-              {experience}
-            </h1>
-            <h1>
-              <span className="font-semibold">Total Recipe:</span>{" "}
-              {recipeNumber}
-            </h1>
-            <h1>
-              <span className="font-semibold">Like:</span> {likeNumber}
-            </h1>
-          </div>
-        </div>
-        <div className="p-3 text-justify">
-          <p>{bio.slice(0, 130)}...</p>
+    // <div className="card w-full bg-base-100 hover:bg-slate-200 shadow-xl mx-3">
+    <div className="card card-compact w-96 bg-base-100 hover:bg-slate-200 shadow-xl">
+      <figure className="flex items-center justify-center">
+        <img className="w-fit rounded" src={photo} alt={name} />
+      </figure>
+      <div className="card-body flex items-center justify-center">
+        <div className=" text-justify">
+          <h1 className="card-title text-2xl font-bold">{name}</h1>
+          <h1 className="card-title text-2xl font-bold">{email}</h1>
+          <h1 className="text-xl">
+            <span className="font-bold">Category:</span> {category}
+          </h1>
+          <h1 className="text-xl">
+            <span className="font-bold">Quantity:</span> {quantity}
+          </h1>
         </div>
       </div>
     </div>

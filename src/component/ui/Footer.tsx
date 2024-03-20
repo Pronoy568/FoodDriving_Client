@@ -1,9 +1,15 @@
 import logo from "../../assets/logo/logo.jpg";
+import { useAppSelector } from "../../redux/hooks";
 
 const Footer = () => {
+  const { isDark } = useAppSelector((state) => state.theme);
   return (
     <div>
-      <footer className="p-10 bg-base-200 text-base-content">
+      <footer
+        className={`${
+          isDark ? "bg-slate-900 text-white" : "bg-base-200"
+        } p-10 bg-base-200 text-base-content`}
+      >
         <div className="footer justify-center md:justify-normal">
           <div className="md:justify-self-center">
             <span className="footer-title">Services</span>
@@ -33,7 +39,11 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
+      <footer
+        className={`${
+          isDark ? "bg-slate-900 text-white" : "bg-base-200"
+        } footer px-10 py-4 border-t text-base-content border-base-300 `}
+      >
         <div className="items-center justify-self-center">
           <img className="rounded-full w-2/4 mx-auto" src={logo} alt="logo" />
         </div>
@@ -75,7 +85,11 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <footer className="footer footer-center p-4 bg-base-300 text-base-content">
+      <footer
+        className={`${
+          isDark ? "bg-slate-900 text-white" : "bg-base-300"
+        } footer footer-center p-4 text-base-content`}
+      >
         <div>
           <p>Copyright © 2024 - All right reserved by Food Driving Ltd.</p>
         </div>
