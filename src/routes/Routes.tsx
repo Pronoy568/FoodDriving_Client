@@ -12,6 +12,9 @@ import SingleSupply from "../pages/AllSupplies/SingleSupply";
 import UpdateSupply from "../pages/Dashboard/UpdateSupply";
 import Gratitude from "../pages/Gratitude/Gratitude";
 import CreateTestimonial from "../pages/Dashboard/CreateTestimonial";
+import CreateVolunteer from "../pages/Dashboard/CreateVolunteer";
+import AboutUs from "../pages/AboutUs/AboutUs";
+import Leaderboard from "../pages/Leaderboard/Leaderboard";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +36,14 @@ const router = createBrowserRouter([
       {
         path: "/community",
         element: <Gratitude />,
+      },
+      {
+        path: "/leaderboard",
+        element: <Leaderboard />,
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs />,
       },
       {
         path: "/login",
@@ -63,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/create-testimonial",
         element: <CreateTestimonial />,
+      },
+      {
+        path: "/dashboard/create-volunteer",
+        element: <CreateVolunteer />,
       },
       {
         path: "/dashboard/updateSupplies/:id",

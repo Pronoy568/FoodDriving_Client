@@ -39,6 +39,10 @@ const Sidebar = () => {
       ),
     },
     {
+      key: "Create Volunteer",
+      label: <NavLink to="/dashboard/create-volunteer">Join Volunteer</NavLink>,
+    },
+    {
       key: "Home",
       label: <NavLink to="/">Home</NavLink>,
     },

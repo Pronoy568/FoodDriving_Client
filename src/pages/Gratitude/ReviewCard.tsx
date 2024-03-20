@@ -1,4 +1,9 @@
-const ReviewCard = ({ info }) => {
+interface ReviewInfo {
+  review: string;
+  user: { email: string };
+}
+
+const ReviewCard = ({ info }: { info: ReviewInfo }) => {
   return (
     <div className="card card-compact bg-base-100 hover:bg-slate-200 shadow-xl p-1">
       <div className="text-center">

@@ -10,7 +10,6 @@ const DonorDisplay = (props: {
   const { name, email, category, quantity, photo } = props.chef;
 
   return (
-    // <div className="card w-full bg-base-100 hover:bg-slate-200 shadow-xl mx-3">
     <div className="card card-compact w-96 bg-base-100 hover:bg-slate-200 shadow-xl">
       <figure className="flex items-center justify-center">
         <img className="w-fit rounded" src={photo} alt={name} />

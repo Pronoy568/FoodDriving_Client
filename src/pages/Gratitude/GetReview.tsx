@@ -1,4 +1,5 @@
 import { useGetAllGratitudeQuery } from "../../redux/features/gratitudeApi/gratitudeApi";
+import { TReviewInfo } from "../../types/reviewTypes";
 import ReviewCard from "./ReviewCard";
 
 const GetReview = () => {
@@ -19,7 +20,7 @@ const GetReview = () => {
     <div className="text-center w-11/12 mx-auto py-5">
       <h1 className="text-3xl font-bold pb-2">All Review</h1>
       <div className="grid md:grid-cols-2 grid-cols-1 space-y-5 space-x-5">
-        {data.data.map((info) => (
+        {data.data.map((info: TReviewInfo) => (
           <ReviewCard key={info._id} info={info} />
         ))}
       </div>
