@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo/logo.jpg";
+import logo1 from "../../assets/logo/logo1.jpg";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logout, selectCurrentUser } from "../../redux/features/auth/authSlice";
 import { toggleTheme } from "../../redux/features/theme/themeSlice";
@@ -20,7 +21,7 @@ const Navbar = () => {
     <>
       <div
         className={`${
-          isDark ? "bg-slate-900 text-white" : "bg-base-100"
+          isDark ? "bg-black text-white" : "bg-base-100"
         } navbar lg:flex lg:justify-center lg:items-center`}
       >
         {/* Mobile */}
@@ -47,14 +48,19 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>
-                  <NavLink to="/">Home</NavLink>
-                </a>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <a>
-                  <NavLink to="/supplies">All Supplies</NavLink>
-                </a>
+                <NavLink to="/supplies">All Supplies</NavLink>
+              </li>
+              <li>
+                <NavLink to="/community">Gratitude</NavLink>
+              </li>
+              <li>
+                <NavLink to="/leaderboard">Leaderboard</NavLink>
+              </li>
+              <li>
+                <NavLink to="/about-us">About Us</NavLink>
               </li>
               {user ? (
                 <>
@@ -76,54 +82,64 @@ const Navbar = () => {
                   </li>
                 </>
               )}
-              <button onClick={handleChangeTheme}>
-                {isDark ? (
-                  <>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="lucide lucide-sun-moon text-white"
-                    >
-                      <path d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4" />
-                      <path d="M12 2v2" />
-                      <path d="M12 20v2" />
-                      <path d="m4.9 4.9 1.4 1.4" />
-                      <path d="m17.7 17.7 1.4 1.4" />
-                      <path d="M2 12h2" />
-                      <path d="M20 12h2" />
-                      <path d="m6.3 17.7-1.4 1.4" />
-                      <path d="m19.1 4.9-1.4 1.4" />
-                    </svg>
-                  </>
-                ) : (
-                  <>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="lucide lucide-moon"
-                    >
-                      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-                    </svg>
-                  </>
-                )}
-              </button>
+              <li>
+                <button onClick={handleChangeTheme}>
+                  {isDark ? (
+                    <>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-sun-moon text-white"
+                      >
+                        <path d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4" />
+                        <path d="M12 2v2" />
+                        <path d="M12 20v2" />
+                        <path d="m4.9 4.9 1.4 1.4" />
+                        <path d="m17.7 17.7 1.4 1.4" />
+                        <path d="M2 12h2" />
+                        <path d="M20 12h2" />
+                        <path d="m6.3 17.7-1.4 1.4" />
+                        <path d="m19.1 4.9-1.4 1.4" />
+                      </svg>
+                    </>
+                  ) : (
+                    <>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-moon "
+                      >
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                      </svg>
+                    </>
+                  )}
+                </button>
+              </li>
             </ul>
           </div>
-          <img src={logo} alt="logo" />
+          {isDark ? (
+            <>
+              <img className="h-24" src={logo1} alt="logo" />
+            </>
+          ) : (
+            <>
+              <img src={logo} alt="logo" />
+            </>
+          )}
         </div>
         {/* Big Screen */}
         <div className="navbar-center hidden lg:flex">

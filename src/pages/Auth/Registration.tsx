@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link, useNavigate } from "react-router-dom";
 import img from "../../assets/auth/register.jpg";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useRegisterMutation } from "../../redux/features/auth/authApi";
 import { toast } from "sonner";
 import { setRegister } from "../../redux/features/auth/authSlice";
@@ -11,6 +11,7 @@ const Registration = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [register] = useRegisterMutation();
+  const { isDark } = useAppSelector((state) => state.theme);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSignUp = async (event: {
     preventDefault: () => void;
@@ -45,7 +46,9 @@ const Registration = () => {
   };
 
   return (
-    <div className="hero min-h-screen">
+    <div
+      className={`${isDark ? "bg-slate-700" : "bg-base-300"} hero min-h-screen`}
+    >
       <div className="hero-content flex-col lg:flex-row-reverse">
         <motion.div
           initial={{ x: -100 }}

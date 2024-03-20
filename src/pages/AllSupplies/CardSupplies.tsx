@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const CardSupplies = ({ info }: any) => {
   return (
-    <div className="card card-compact w-96 bg-base-100 hover:bg-slate-200 shadow-xl pt-3">
+    <div className="card card-compact w-96 bg-base-100 hover:bg-slate-200 shadow-xl">
       <figure>
         <img src={info.photo} alt={info.title} />
       </figure>

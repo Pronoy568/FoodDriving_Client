@@ -5,7 +5,7 @@ interface ReviewInfo {
 
 const ReviewCard = ({ info }: { info: ReviewInfo }) => {
   return (
-    <div className="card card-compact bg-base-100 hover:bg-slate-200 shadow-xl p-1">
+    <div className="card card-compact bg-base-100 hover:bg-slate-200 shadow-xl p-3">
       <div className="text-center">
         <p className="text-xl">
           {" "}

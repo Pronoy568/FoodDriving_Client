@@ -1,9 +1,11 @@
 import { useGetVolunteerQuery } from "../../redux/features/volunteer/volunteerApt";
+import { useAppSelector } from "../../redux/hooks";
 import { TVolunteerInfo } from "../../types/volunteerTypes";
 import ShowVolunteer from "./ShowVolunteer";
 
 const AboutUs = () => {
   const { data, isError, isLoading } = useGetVolunteerQuery(null);
+  const { isDark } = useAppSelector((state) => state.theme);
 
   if (isLoading) {
     return (
@@ -17,7 +19,11 @@ const AboutUs = () => {
   }
 
   return (
-    <div className="text-center w-11/12 mx-auto py-5">
+    <div
+      className={`${
+        isDark ? "bg-slate-500 text-white" : "bg-white"
+      } text-center pt-5`}
+    >
       <h1 className="text-3xl font-bold pb-2">Our Voluntees</h1>
       <div className="grid grid-cols-1 space-y-5 py-10">
         <div className="flex justify-center items-center">

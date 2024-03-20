@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import img from "../../assets/auth/login.jpg";
 import { Link, useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { setUser } from "../../redux/features/auth/authSlice";
 import { useLoginMutation } from "../../redux/features/auth/authApi";
 import { motion } from "framer-motion";
@@ -11,6 +11,7 @@ const Login = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [login] = useLoginMutation();
+  const { isDark } = useAppSelector((state) => state.theme);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleLogin = async (event: {
     preventDefault: () => void;
@@ -40,7 +41,9 @@ const Login = () => {
   };
 
   return (
-    <div className="hero min-h-screen">
+    <div
+      className={`${isDark ? "bg-slate-700" : "bg-base-300"} hero min-h-screen`}
+    >
       <div className="hero-content flex-col lg:flex-row">
         <motion.div
           initial={{ x: -100 }}

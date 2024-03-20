@@ -1,8 +1,10 @@
 import { useGetTestimonialQuery } from "../../redux/features/testimonial/testimonialApi";
+import { useAppSelector } from "../../redux/hooks";
 import ShowLeaderboard from "./ShowLeaderboard";
 
 const Leaderboard = () => {
   const { data, isError, isLoading } = useGetTestimonialQuery(null);
+  const { isDark } = useAppSelector((state) => state.theme);
 
   if (isLoading) {
     return (
@@ -18,7 +20,11 @@ const Leaderboard = () => {
   const sortedData = [...data.data].sort((a, b) => b.quantity - a.quantity);
 
   return (
-    <div className="text-center w-11/12 mx-auto py-5">
+    <div
+      className={`${
+        isDark ? "bg-slate-600 text-white" : "bg-white"
+      } text-center py-5`}
+    >
       <h1 className="text-3xl font-bold pb-2">Leaderboard</h1>
       <div className="grid grid-cols-1 space-y-5 py-10">
         <div className="flex justify-center items-center">
